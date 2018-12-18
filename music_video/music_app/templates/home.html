@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% for play in playlist %}
+
+{{play.thumbnail_url}}
+
+{% endfor %}
+
 
  {% endblock %}
