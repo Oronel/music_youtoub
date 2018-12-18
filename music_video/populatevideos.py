@@ -26,9 +26,9 @@ def get_playlists(playlists_api_url):
 	playlist_json = requests.get(playlists_api_url).json()
 	for item in playlist_json['items']:
 		print(item)
-		if 'playlistId' in item['id']:
-			playlist = Playlist.objects.get_or_create(playlist_id= item['id']['playlistId'], title=item['snippet']['title'],
-				description=item['snippet']['description'],thumbnail_url=item['snippet']['thumbnails']['default']['url'])
+		if 'resourceId' in item['id']:
+			playlist = Playlist.objects.get_or_create(playlist_id= item['snippet']['resourceId']['videoId'], title=item['snippet']['title'],
+				description=item['snippet']['description'],thumbnail_url=item['snippet']['thumbnails']['high']['url'])
 			print(playlist)
 			get_videos(playlist)
 			
