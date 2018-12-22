@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% for vid in videos %}
+ {{vid.title}}
 
+ {% endfor %}
 
  {% endblock %}

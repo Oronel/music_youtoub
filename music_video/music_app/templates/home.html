@@ -1,11 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
 
+
+<h1> YouToub</h1>
+
 {% for play in playlist %}
 
-{{play.thumbnail_url}}
+<img  src="{{play.thumbnail_url}}"> 
+<br>
+  	
+<p>
+
+	<a href="{% url 'music_app:videos' play.thumbnail_url %}"> 
+		{{ play.thumbnail_url }}
+    </a>
+	
+</p>
+
+
+
+
+
+
+
 
 {% endfor %}
+
+
 
 
  {% endblock %}

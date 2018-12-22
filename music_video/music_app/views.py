@@ -5,8 +5,13 @@ from music_app.models import UserProfile, Video, Playlist
 
 
 def home(request):
-	use = request.user
-	users = UserProfile.objects.all()
 	playlist= Playlist.objects.all()[:10]
-	videos = Video.objects.all().order_by('-date')
-	return render(request, 'home.html', {'playlist':playlist, 'users': users, 'videos': videos})
+	videos = Video.objects.all()
+	return render(request, 'home.html', {'playlist':playlist, 'videos': videos})
+
+
+def videos(request):
+	playlist= Playlist.objects.all()[:10]
+	videos = Video.objects.all()
+	return render(request, 'videos.html', {'playlist':playlist,'videos': videos})
+
