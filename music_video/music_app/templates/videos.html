@@ -2,8 +2,13 @@
 {% block content %}
 
 {% for vid in videos %}
- {{vid.title}}
+{% for play in playlist %}
+
+ <video width="560" height="315" controls="controls" frameborder="0" allowfullscreen> <source src="{{play.thumbnail_url}}" type="video/mp4"></video>
+
+ {{play.thumbnail_url}}
 
  {% endfor %}
+  {% endfor %}
 
  {% endblock %}

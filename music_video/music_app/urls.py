@@ -5,5 +5,5 @@ app_name='music_app'
 
 urlpatterns = [
 path('home/', views.home, name='home'),
-path('videos/<playlists_id>', views.videos, name='videos'),
+path('videos/', views.videos, name='videos'),
 ]

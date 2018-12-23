@@ -13,5 +13,6 @@ def home(request):
 def videos(request):
 	playlist= Playlist.objects.all()[:10]
 	videos = Video.objects.all()
+	print(playlist[0].thumbnail_url)
 	return render(request, 'videos.html', {'playlist':playlist,'videos': videos})
 
