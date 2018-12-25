@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h1> Playlist: {{playlist.title}}</h1>
+
+{% for video in videos %} 
+<br>
+  	
+<p>
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/{{video.video_id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<a href="{% url 'music_app:video' video.id%}"> 
+		{{video.title}}
+    </a>
+
+
+
+
+
+
+
+{% endfor %}
+
+
+
+
+ {% endblock %}

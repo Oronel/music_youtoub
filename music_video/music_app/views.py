@@ -5,12 +5,17 @@ from music_app.models import UserProfile, Video, Playlist
 
 
 def home(request):
-	playlist= Playlist.objects.all()[:10]
-	videos = Video.objects.all()
-	return render(request, 'home.html', {'playlist':playlist, 'videos': videos})
+	playlists= Playlist.objects.all()[:10]
+	return render(request, 'home.html', {'playlist':playlists})
 
 
-def videos(request):
-	playlist= Playlist.objects.all()[:10]
-	videos = Video.objects.all()[:10]
-	return render(request, 'videos.html', {'playlist':playlist,'videos': videos})
+def video(request, video_id):
+	video = Video.objects.filter(id=video_id)
+	print(video)
+	return render(request, 'video.html', {'video': video})
+
+def playlist_page(request, playlist_id):
+	playlist = Playlist.objects.filter(id=playlist_id)[0]
+	videos = Video.objects.filter(playlist=playlist)
+	print(videos)
+	return render(request, 'playlist_page.html', {'playlist':playlist, 'videos': videos})
